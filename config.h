@@ -21,8 +21,8 @@ static const char *colors[][3]      = {
 
 static char* const autostart[][10] = {
     { "picom" , "-f" , "--fade-delta" , "1" , "--vsync" , "--refresh-rate" , "75" , NULL },
-    { "feh" , "--bg-scale" , "/home/s4tyr/Pictures/Wallpapers/tc.png" , NULL },
-    { "xinput" , "--set-prop" , "8" , "'libinput", "Accel" , "Speed'" , "-0.7" , NULL },
+    { "feh" , "--bg-scale" , "/home/s4tyr/Pictures/Wallpapers/tc-s4tyr-2.png" , NULL },
+    // { "xinput" , "--set-prop" , "8" , "'libinput" , "Accel" , "Profile" , "Enabled'" , "0," , "1" , NULL }, 
     { "setxkbmap" , "-model" , "pc104" , "-layout" , "gb" , NULL }
 };
 
