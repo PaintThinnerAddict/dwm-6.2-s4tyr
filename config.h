@@ -21,7 +21,7 @@ static const char *colors[][3]      = {
 
 static char* const autostart[][10] = {
     { "picom" , "-f" , "--fade-delta" , "1" , "--vsync" , "--refresh-rate" , "75" , NULL },
-    { "feh" , "--bg-scale" , "/home/s4tyr/Pictures/Wallpapers/tc-s4tyr-2.png" , NULL },
+    { "feh" , "--bg-scale" , "/home/s4tyr/Pictures/Wallpapers/tc-s4tyr-4.png" , NULL },
     // { "xinput" , "--set-prop" , "8" , "'libinput" , "Accel" , "Profile" , "Enabled'" , "0," , "1" , NULL }, 
     { "setxkbmap" , "-model" , "pc104" , "-layout" , "gb" , NULL }
 };
@@ -70,6 +70,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browser[] = { "brave" , NULL };
 static const char *screenshot[] = { "scrot" , NULL };
+static const char *lock[] = { "slock" , NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -77,6 +78,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
+	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lock } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
