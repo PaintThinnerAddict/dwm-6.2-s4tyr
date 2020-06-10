@@ -38,7 +38,7 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",    NULL,     NULL,           0,         1,          0,           1,        -1 },
 	{ "Brave",   NULL,     NULL,           0,         0,          0,          -1,        -1 },
-	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ "st",      NULL,     NULL,           0,         0,          1,          -1,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* XEV */
 	{ "Audacious", NULL,   NULL,           0,         1,          0,           1,        -1 }
 };
@@ -76,6 +76,8 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browser[] = { "brave" , NULL };
 static const char *screenshot[] = { "scrot" , NULL };
 static const char *lock[] = { "slock" , NULL };
+static const char *volup[] = { "pamixer" , "-i" , "2" , NULL };
+static const char *voldown[] = { "pamixer" , "-d" , "2" , NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -84,10 +86,12 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lock } },
+	{ MODKEY|ShiftMask,             XK_equal, spawn,          {.v = volup } },
+	{ MODKEY|ShiftMask,             XK_minus,  spawn,          {.v = voldown } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+        { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -109,7 +113,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
